@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YazılımDev - Kişisel Blog & Portföy</title>
+    <style>
+        :root {
+            --primary: #0074ff;
+            --secondary: #ba0505;
+            --background: #ffffff;
+            --foreground: #171717;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: var(--background);
+            color: var(--foreground);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        header {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.3);
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .hero {
+            padding: 8rem 0;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(to bottom, rgba(0, 116, 255, 0.1), transparent);
+            overflow: hidden;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+        }
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(3rem);
+            z-index: -1;
+        }
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: rgba(0, 116, 255, 0.05);
+            top: -100px;
+            left: -100px;
+        }
+        .blob-2 {
+            width: 300px;
+            height: 300px;
+            background: rgba(186, 5, 5, 0.05);
+            top: 20%;
+            right: -50px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            margin: 0 0.5rem;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="/" class="logo">YazılımDev</a>
+            <nav>
+                <ul>
+                    <li><a href="/">Ana Sayfa</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/projeler">Projeler</a></li>
+                    <li><a href="/hakkimda">Hakkımda</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="container">
+            <h1>Kod, Tasarım ve Yaratıcılık</h1>
+            <p>Flutter, C#, SQL ve Yazılım Geliştirme Dünyası</p>
+            <a href="/projeler" class="btn btn-primary">Projelerimi Gör</a>
+            <a href="/blog" class="btn btn-outline">Blog Yazıları</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2>Bu statik HTML sayfası, stil ve animasyon sorunlarını teşhis etmek için oluşturulmuştur.</h2>
+        <p>Eğer bu sayfa düzgün görüntüleniyorsa, sorun Next.js veya Tailwind CSS konfigürasyonundan kaynaklanıyor olabilir.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,3 @@
+// Bu dosya sadece bir yer tutucu olarak oluşturulmuştur
+// Gerçek resim dosyasıyla değiştirilmelidir
+export default "placeholder_image";
