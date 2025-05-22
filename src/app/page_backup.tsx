@@ -1,17 +1,48 @@
-"use client";
-
 import { Hero } from "@/components/ui/hero";
 import { TechShowcase } from "@/components/ui/tech-showcase";
 import { Card } from "@/components/ui/card";
 import Link from "next/link";
+import { Metadata } from "next";
 import { HomeClient } from "@/components/home/home-client";
 import Script from "next/script";
 import { motion } from 'framer-motion';
 
+export const metadata: Metadata = {
+  title: "YazılımDev - Kişisel Blog & Portföy",
+  description: "Yazılım geliştirme deneyimleri ve projeleri içeren kişisel web sitesi. Flutter, C#, SQL ve diğer teknolojiler hakkında içerikler",
+  alternates: {
+    canonical: "https://yazilimdev.com",
+  },
+  openGraph: {
+    title: "Kaan Yıldız - Yazılım Geliştirici Portföyü",
+    description: "Flutter, C# ve web teknolojileri ile ilgili yazılar ve projeler",
+    url: "https://yazilimdev.com",
+    siteName: "YazılımDev",
+    locale: "tr_TR",
+    type: "website",
+    images: [
+      {
+        url: "https://yazilimdev.com/api/og?title=Kaan%20Y%C4%B1ld%C4%B1z%20-%20Yaz%C4%B1l%C4%B1m%20Geli%C5%9Ftirici",
+        width: 1200,
+        height: 630,
+        alt: "Kaan Yıldız - Yazılım Geliştirici"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kaan Yıldız - Yazılım Geliştirici",
+    description: "Flutter, C# ve web teknolojileri ile ilgili yazılar ve projeler",
+    images: ["https://yazilimdev.com/api/og?title=Kaan%20Y%C4%B1ld%C4%B1z%20-%20Yaz%C4%B1l%C4%B1m%20Geli%C5%9Ftirici"]
+  }
+};
+
 export default function Home() {
-  return (    <>      <Hero
-        title="Kaan Yıldız"
-        subtitle="Yazılım & Mobil Uygulama Geliştirici"
+  return (
+    <>
+      <Hero
+        title="Mehmet Kaan Yıldız"
+        subtitle="Bilgisayar Programcısı / Mobil Geliştirici"
         description="Yazılım geliştirme yolculuğumu, öğrendiklerimi ve projelerimi paylaştığım kişisel blog ve portföy sitem."
         cta={{ text: "Projelerimi Gör", link: "/projeler" }}
         secondaryCta={{ text: "Blog Yazıları", link: "/blog" }}
@@ -24,9 +55,10 @@ export default function Home() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Person",            "name": "Kaan Yıldız",
+            "@type": "Person",
+            "name": "Kaan Yıldız",
             "alternateName": "Mehmet Kaan Yıldız",
-            "description": "Yazılım & Mobil Uygulama Geliştirici",
+            "description": "Bilgisayar Programcısı / Mobil Geliştirici",
             "jobTitle": "Mobil Uygulama Geliştirici",
             "url": "https://yazilimdev.com",
             "sameAs": [
@@ -44,8 +76,7 @@ export default function Home() {
       <section className="container my-24 relative">
         <HomeClient />
       </section>
-      
-      <section className="container my-24 relative">
+        
         <motion.div 
           animate={{
             opacity: [0.2, 0.4, 0.2],

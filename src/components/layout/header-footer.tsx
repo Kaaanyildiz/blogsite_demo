@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { FaGithub, FaLinkedin, FaTwitter, FaBars, FaTimes, FaEnvelope, FaInstagram } from 'react-icons/fa';
-import { ThemeToggle } from '@/components/theme/theme-toggle';
+import { ThemeToggle } from '@/components/theme/theme-toggle-export';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -95,9 +95,9 @@ export function Header() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-          >            <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent relative group">
+          >            <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent relative group">
               <span className="relative z-10">Kaan Yıldız</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-1 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-1 bg-gradient-to-r from-primary via-secondary to-primary group-hover:w-full transition-all duration-300"></span>
               <motion.span 
                 className="absolute -inset-x-2 -inset-y-1 rounded-lg bg-primary/5 opacity-0 group-hover:opacity-100"
                 whileHover={{ scale: 1.05 }}

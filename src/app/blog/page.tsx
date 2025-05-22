@@ -1,9 +1,38 @@
-'use client';
-
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { Metadata } from "next";
+import Script from "next/script";
+
+// Metadata moved to layout.tsx
 
 export default function BlogPage() {
+  return (
+    <>
+      <BlogPageContent />
+      
+      {/* Blog listesi için JSON-LD yapılandırılmış veri */}
+      <Script
+        id="blog-list-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "name": "YazılımDev Blog",
+            "description": "Yazılım geliştirme, teknoloji ve kodlama deneyimleri hakkında blog yazıları",
+            "url": "https://yazilimdev.com/blog",
+            "publisher": {
+              "@type": "Person",
+              "name": "Kaan Yıldız"
+            }
+          })
+        }}
+      />
+    </>
+  );
+}
+
+// Blog sayfası içeriği
+function BlogPageContent() {
   const posts = [
     {
       id: "flutter-state-management",
@@ -58,32 +87,18 @@ export default function BlogPage() {
         </div>
         
         <div className="container relative z-10">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-5xl md:text-6xl font-bold mb-6 text-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
-          >
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Blog
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mx-auto mb-8 max-w-2xl text-center text-lg text-foreground/80"
-          >
+          </h1>
+          <p className="mx-auto mb-8 max-w-2xl text-center text-lg text-foreground/80">
             Yazılım geliştirme, teknoloji ve deneyimlerim hakkında düşüncelerimi paylaştığım blog yazılarım
-          </motion.p>
+          </p>
         </div>
-      </section>      <section className="container my-24">
+      </section><section className="container my-24">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post, index) => (
-            <motion.article 
-              key={post.id} 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.1 * index }}
+            <article 
+              key={post.id}
               className="card overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-border/40 bg-card h-full"
             >
               <div className="p-6">
@@ -118,10 +133,9 @@ export default function BlogPage() {
                       strokeWidth={2}
                       d="M9 5l7 7-7 7"
                     />
-                  </svg>
-                </Link>
+                  </svg>                </Link>
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
       </section>

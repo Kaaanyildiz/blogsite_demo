@@ -1,0 +1,21 @@
+# Tüm botların site haritasına erişimine izin ver
+User-agent: *
+Allow: /
+
+# Botların tarama hızını ayarla (saniye cinsinden)
+Crawl-delay: 5
+
+# Ana domain belirtme
+Host: https://yazilimdev.com
+
+# SEO için önemli sayfaları özellikle belirtebiliriz
+Allow: /blog
+Allow: /projeler
+Allow: /hakkimda
+
+# Admin veya özel sayfaları engelleyebiliriz (gerekirse)
+# Disallow: /admin/
+# Disallow: /ozel-icerik/
+
+# Sitemap dosyasının konumu
+Sitemap: https://yazilimdev.com/sitemap.xml

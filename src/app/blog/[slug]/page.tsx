@@ -1,18 +1,68 @@
-'use client';
+import { Metadata } from "next";
+import { BlogClient } from "@/components/blog/blog-client-fixed";
+import RelatedArticlesJsonLd from "@/components/blog/related-articles-jsonld";
+import BlogJsonLd from "@/components/blog/blog-jsonld";
+import { OptimizedImage } from "@/components/ui/optimized-image";
+import Script from "next/script";
 
-import Link from "next/link";
-import { FaCalendar, FaTag, FaArrowLeft } from "react-icons/fa";
-import Image from "next/image";
-import { motion } from "framer-motion";
+type Props = {
+  params: { slug: string }
+};
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const post = getPostData(params.slug);
+  
+  // ISO tarih formatına dönüştürme
+  const dateStr = post.date;
+  const dateParts = dateStr.split(' ');
+  const months: Record<string, string> = {
+    'Ocak': '01', 'Şubat': '02', 'Mart': '03', 'Nisan': '04', 'Mayıs': '05', 'Haziran': '06',
+    'Temmuz': '07', 'Ağustos': '08', 'Eylül': '09', 'Ekim': '10', 'Kasım': '11', 'Aralık': '12'
+  };
+  const isoDate = `${dateParts[2]}-${months[dateParts[1] || 'Ocak']}-${dateParts[0].padStart(2, '0')}`;
+  
+  return {
+    title: `${post.title} - YazılımDev Blog`,
+    description: post.excerpt || "YazılımDev Blog yazısı",
+    alternates: {
+      canonical: `https://yazilimdev.com/blog/${params.slug}`,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt || "YazılımDev Blog yazısı",
+      type: "article",
+      url: `https://yazilimdev.com/blog/${params.slug}`,
+      publishedTime: isoDate,
+      modifiedTime: new Date().toISOString().split('T')[0],
+      authors: [post.author],
+      tags: post.tags,
+      images: [
+        {
+          url: `https://yazilimdev.com/api/og?title=${encodeURIComponent(post.title)}`,
+          width: 1200,
+          height: 630,
+          alt: post.title
+        }
+      ]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt || "YazılımDev Blog yazısı",
+      images: [`https://yazilimdev.com/api/og?title=${encodeURIComponent(post.title)}`]
+    }
+  };
+}
+
+function getPostData(slug: string) {
   // Bu kısım normalde gerçek veritabanından veya CMS'den alınır
   // Şimdilik statik örnek içerik oluşturuyoruz
-    const post = {
-    slug: params.slug,
+  return {
+    slug: slug,
     title: "Flutter'da State Management",
     date: "15 Mayıs 2025",
     author: "Yazılım Geliştiricisi",
+    excerpt: "Flutter uygulamalarında durum yönetimi için farklı yaklaşımların karşılaştırılması.",
     tags: ["Flutter", "State Management", "Provider"],
     content: `
       <p>Flutter'da durum yönetimi (state management), uygulamanızın verilerini etkili bir şekilde yönetmenize ve kullanıcı arayüzünüzün bu verilere tepki vermesini sağlamanıza olanak tanır. Bu yazıda, Flutter'da kullanabileceğiniz farklı durum yönetimi yaklaşımlarını inceleyeceğiz.</p>
@@ -87,142 +137,58 @@ void mainExample() {
       <p>Sonuç olarak, Flutter'da durum yönetimi için tek bir "doğru" yaklaşım yoktur. Uygulamanızın ihtiyaçlarına en uygun çözümü seçmek önemlidir.</p>
     `,
   };
+}
 
-  // Burada normalde markdown veya HTML içeriği ayrıştırılır
-  const renderedContent = (
-    <div dangerouslySetInnerHTML={{ __html: post.content }} />
-  );  return (
+export default function BlogPost({ params }: Props) {
+  const post = getPostData(params.slug);
+  
+  // İlgili yazıları simüle ediyoruz (normalde bir API'den veya veritabanından gelirdi)
+  const relatedPosts = [
+    {
+      id: "flutter-animasyonlar",
+      title: "Flutter'da Animasyonlar",
+      excerpt: "Flutter'da kullanıcı deneyimini geliştiren animasyon teknikleri."
+    },
+    {
+      id: "nextjs-blog-sitesi",
+      title: "Next.js ile Blog Sitesi Oluşturma",
+      excerpt: "Modern bir blog sitesi oluşturmak için Next.js kullanım adımları."
+    },
+    {
+      id: "git-versiyon-kontrolu",
+      title: "Git ile Etkili Versiyon Kontrolü",
+      excerpt: "Projelerinizde Git'i daha etkili kullanmak için ipuçları ve stratejiler."
+    },
+  ];
+  return (
     <>
-      <section className="bg-gradient-to-b from-primary/10 to-transparent py-32 relative overflow-hidden">
-        {/* Dekoratif arka plan elementleri */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-24 right-20 w-96 h-96 rounded-full bg-primary/5 blur-3xl"></div>
-          <div className="absolute bottom-10 -left-24 w-80 h-80 rounded-full bg-secondary/5 blur-3xl"></div>
-        </div>
-        
-        <div className="container relative z-10 max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-6"
-          >
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 rounded-full bg-card border border-border/40 px-4 py-2 font-medium text-foreground/70 hover:text-primary transition-colors duration-300"
-            >
-              <FaArrowLeft className="h-4 w-4" /> Tüm Yazılar
-            </Link>
-          </motion.div>
-            <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl sm:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
-          >
-            {post.title}
-          </motion.h1>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex flex-wrap items-center gap-4 mb-6 text-foreground/60"
-          >
-            <div className="flex items-center gap-2">
-              <FaCalendar className="h-4 w-4" />
-              <span>{post.date}</span>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
-                >
-                  <FaTag className="h-3 w-3" />
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-            
-      <article className="container mx-auto -mt-10 mb-24 max-w-3xl bg-card rounded-2xl shadow-xl p-8 md:p-12 relative z-10 border border-border/30">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="prose prose-lg dark:prose-invert prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-10 prose-p:text-foreground/80 prose-pre:bg-muted prose-pre:text-foreground max-w-none"
-        >
-          {renderedContent}
-        </motion.div>
-
-        <div className="mt-12 rounded-lg border border-border p-6">
-          <h3 className="mb-4 text-xl font-bold">Bu yazı hakkında ne düşünüyorsunuz?</h3>
-          <p className="mb-4 text-foreground/80">
-            Sorularınız veya yorumlarınız varsa, aşağıdaki iletişim kanalları üzerinden benimle paylaşabilirsiniz.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <a
-              href="mailto:iletisim@email.com"
-              className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary/90"
-            >
-              E-posta Gönder
-            </a>
-            <a
-              href="https://twitter.com/yourusername"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center rounded-md bg-[#1DA1F2] px-4 py-2 text-sm font-medium text-white hover:bg-[#1DA1F2]/90"
-            >
-              Twitter&apos;da Paylaş
-            </a>
-          </div>
-        </div>
-
-        <div className="mt-12">
-          <h3 className="mb-6 text-2xl font-bold">İlgili Yazılar</h3>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-            <div className="card p-5">
-              <h4 className="mb-2 font-bold">Flutter&apos;da Animasyonlar</h4>
-              <p className="mb-3 text-sm text-foreground/70">
-                Flutter&apos;da kullanıcı deneyimini geliştiren animasyon teknikleri.
-              </p>
-              <Link
-                href="/blog/flutter-animasyonlar"
-                className="text-sm font-medium text-primary hover:underline"
-              >
-                Yazıyı Oku
-              </Link>
-            </div>
-            <div className="card p-5">
-              <h4 className="mb-2 font-bold">Next.js ile Blog Sitesi Oluşturma</h4>
-              <p className="mb-3 text-sm text-foreground/70">
-                Modern bir blog sitesi oluşturmak için Next.js kullanım adımları.
-              </p>
-              <Link
-                href="/blog/nextjs-blog-sitesi"
-                className="text-sm font-medium text-primary hover:underline"
-              >
-                Yazıyı Oku
-              </Link>
-            </div>
-            <div className="card p-5">
-              <h4 className="mb-2 font-bold">Git ile Etkili Versiyon Kontrolü</h4>
-              <p className="mb-3 text-sm text-foreground/70">
-                Projelerinizde Git&apos;i daha etkili kullanmak için ipuçları ve stratejiler.
-              </p>
-              <Link
-                href="/blog/git-versiyon-kontrolu"
-                className="text-sm font-medium text-primary hover:underline"
-              >
-                Yazıyı Oku
-              </Link>
-            </div>
-          </div>
-        </div>
-      </article>
+      <BlogClient post={post} />
+      
+      {/* İlişkili içerikler için yapılandırılmış veri */}
+      <RelatedArticlesJsonLd posts={relatedPosts} currentPostSlug={params.slug} />
+      
+      {/* Blog yazısı için JSON-LD yapılandırılmış verisi */}
+      <BlogJsonLd post={post} slug={params.slug} />
+      
+      {/* Ana blog sitesi için Schema.org yapılandırılmış verisi */}
+      <Script
+        id="blog-website-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "YazılımDev Blog",
+            "url": "https://yazilimdev.com",
+            "description": "Yazılım geliştirme deneyimleri ve projeleri içeren kişisel web sitesi",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://yazilimdev.com/blog?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          })
+        }}
+      />
     </>
   );
 }

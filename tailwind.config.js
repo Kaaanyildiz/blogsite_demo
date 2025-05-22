@@ -8,6 +8,21 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        'gradient': 'gradient 3s ease infinite',
+        'shine': 'shine 1s ease-in-out',
+      },
+      keyframes: {
+        gradient: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
+        shine: {
+          '0%': { transform: 'translateX(-100%)', opacity: 0 },
+          '100%': { transform: 'translateX(100%)', opacity: 0.3 },
+        },
+      },
       colors: {
         primary: {
           50: '#e6f1ff',

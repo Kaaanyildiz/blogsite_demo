@@ -18,8 +18,7 @@ interface HeroProps {
 }
 
 export function Hero({ title, subtitle, description, cta, secondaryCta }: HeroProps) {
-  return (
-    <div className="relative py-32 overflow-hidden bg-gradient-to-b from-primary/10 via-background to-background">
+  return (    <div className="relative py-20 overflow-hidden bg-gradient-to-b from-primary/5 via-background to-background">
       {/* Animasyonlu arka plan elementleri */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
@@ -78,7 +77,7 @@ export function Hero({ title, subtitle, description, cta, secondaryCta }: HeroPr
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+          className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-center"
         >
           {title}
         </motion.h1>
@@ -87,16 +86,17 @@ export function Hero({ title, subtitle, description, cta, secondaryCta }: HeroPr
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="mx-auto mb-6 max-w-3xl text-xl md:text-2xl font-medium text-foreground/80"
+          className="mx-auto mb-6 max-w-3xl text-2xl md:text-3xl font-semibold text-foreground/90 text-center"
         >
           {subtitle}
         </motion.p>
+        
         {description && (
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mx-auto mb-10 max-w-2xl text-foreground/70"
+            className="mx-auto mb-8 max-w-2xl text-lg text-foreground/70 text-center"
           >
             {description}
           </motion.p>
