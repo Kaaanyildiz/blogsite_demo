@@ -1,54 +1,54 @@
 'use client';
 
 import Image from "next/image";
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaInstagram, FaPhone } from "react-icons/fa";
 import { TechShowcase } from "@/components/ui/tech-showcase";
 import { motion } from "framer-motion";
 
-export default function HakkimdaPage() {
-  const skills = [
-    { category: "Mobil Geliştirme", items: ["Flutter", "Dart", "Android", "iOS"] },
-    { category: "Backend Geliştirme", items: ["C#", ".NET Core", "Entity Framework", "SQL Server"] },
-    { category: "Frontend Geliştirme", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
-    { category: "Veritabanı", items: ["SQL Server", "MySQL", "SQLite", "Firebase"] },
-    { category: "Diğer", items: ["Git", "CI/CD", "Docker", "Agile/Scrum"] },
-  ];
-
-  const experiences = [
+export default function HakkimdaPage() {  const skills = [
+    { category: "Mobil Geliştirme", items: ["Flutter", "Dart"] },
+    { category: "Backend Geliştirme", items: ["C#", "ASP.NET Core"] },
+    { category: "Web Geliştirme", items: ["HTML", "CSS", "JavaScript"] },
+    { category: "Veritabanı", items: ["SQL"] },
+    { category: "Diğer", items: ["Git & GitHub", "VS Code", "English (B1-B2)"] },
+  ];const experiences = [
     {
-      company: "ABC Teknoloji",
-      position: "Kıdemli Yazılım Geliştirici",
-      period: "2022 - Şu Anda",
-      description: "Flutter ve .NET Core kullanarak mobil ve web uygulamaları geliştiriyorum. Ekip liderliği ve mentorluk yapıyorum.",
+      company: "GardenKeeper Game",
+      position: "Mobil Oyun Uygulaması",
+      period: "Flutter Projesi",
+      description: "Bahçenize zarar vermeye çalışan köstebeklere karşı mücadele ettiğiniz, Flutter ile geliştirilmiş eğlenceli bir refleks oyunudur.",
     },
     {
-      company: "XYZ Yazılım",
-      position: "Yazılım Geliştirici",
-      period: "2019 - 2022",
-      description: "C# ve SQL Server kullanarak masaüstü uygulamalar ve web servisleri geliştirdim.",
+      company: "Flag Quiz Game",
+      position: "Eğitici Mobil Uygulama",
+      period: "Flutter Projesi",
+      description: "Kullanıcıların ülkenin bayrağını resmine göre tahmin ettiği Flutter ile geliştirilmiş bir sınav oyunu.",
     },
     {
-      company: "Startup İnovasyon",
-      position: "Stajyer Yazılımcı",
-      period: "2018 - 2019",
-      description: "Front-end geliştirme ve mobil uygulama geliştirmede deneyim kazandım.",
-    },
-  ];
-
-  const education = [
-    {
-      institution: "İstanbul Üniversitesi",
-      degree: "Bilgisayar Mühendisliği",
-      period: "2015 - 2019",
+      company: "Vehicle Management System",
+      position: "Web Uygulaması",
+      period: "ASP.NET Core Projesi",
+      description: "Araçları yönetmek için ASP.NET Core ile oluşturulmuş bir web uygulaması. Araç takibi, rezervasyon ve bakım planlaması özellikleri içerir.",
     },
     {
-      institution: "Anadolu Lisesi",
+      company: "MedAlarm App",
+      position: "Mobil Sağlık Uygulaması",
+      period: "Flutter Projesi",
+      description: "İlaç tedavinizi kusursuz bir şekilde yönetmenize yardımcı olan modern ve kullanıcı dostu, Flutter ile geliştirilmiş bir mobil uygulamadır.",
+    },
+  ];  const education = [
+    {
+      institution: "Kayseri Üniversitesi",
+      degree: "Teknik Bilimler Meslek Yüksekokulu, Bilgisayar Programcılığı",
+      period: "2023 - 2025",
+    },
+    {
+      institution: "Sivas Halisgülle Anadolu Lisesi",
       degree: "Lise Eğitimi",
-      period: "2011 - 2015",
+      period: "2017 - 2021",
     },
-  ];
-  return (
-    <>      <section className="bg-gradient-to-b from-primary/10 to-transparent py-32 relative overflow-hidden">
+  ];  return (
+    <div className="overflow-x-hidden"><section className="bg-gradient-to-b from-primary/10 to-transparent py-32 relative overflow-hidden">
         {/* Dekoratif arka plan elementleri */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div 
@@ -95,7 +95,7 @@ export default function HakkimdaPage() {
                   className="w-full h-full flex items-center justify-center"
                 >                  <Image 
                     src="/images/profile.jpg" 
-                    alt="Profil Fotoğrafı" 
+                    alt="Mehmet Kaan YILDIZ" 
                     className="object-cover w-full h-full"
                     width={256}
                     height={256}
@@ -113,14 +113,13 @@ export default function HakkimdaPage() {
               </div>
             </motion.div>
             
-            <div className="text-center md:text-left">
-              <motion.h1
+            <div className="text-center md:text-left">              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="mb-4 text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
               >
-                Merhaba, Ben Yazılım Geliştiricisi
+                Merhaba, Ben Mehmet Kaan
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -128,16 +127,14 @@ export default function HakkimdaPage() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="mb-6 text-xl text-foreground/80 font-medium"
               >
-                Yazılım Geliştirici & Flutter Uzmanı
+                Bilgisayar Programcısı & Mobil Geliştirici
               </motion.p>              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="mb-6 max-w-2xl text-foreground/70 leading-relaxed"
               >
-                Mobil uygulama geliştirme, masaüstü uygulamalar ve web teknolojileri konusunda
-                uzmanlaşmış bir yazılım geliştiriciyim. Kullanıcı odaklı, yenilikçi ve
-                performanslı uygulamalar geliştirmeyi seviyorum.
+                Kayseri Üniversitesi Bilgisayar Programlama Bölümü son sınıf öğrencisiyim ve yazılım geliştirme alanında kendimi sürekli geliştirmeye çalışan biriyim. Mobil uygulama geliştirme, arka uç ve ön uç teknolojileri ve veritabanı yönetimi (SQL) konusunda uzmanlık kazandım. Güçlü iletişim becerilerine, çözüm odaklı bir zihniyete ve ekip odaklı bir yaklaşıma sahibim.
               </motion.p>
               
               <motion.div
@@ -145,39 +142,36 @@ export default function HakkimdaPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="flex items-center justify-center gap-4 md:justify-start"
-              >
-                <a
-                  href="https://github.com/yourusername"
+              >                <a
+                  href="https://github.com/Kaaanyildiz"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center justify-center w-12 h-12 rounded-full bg-card border border-border/40 shadow-md hover:shadow-lg transition-all duration-300"
                   aria-label="GitHub"
                 >
                   <FaGithub className="h-6 w-6 text-foreground/70 group-hover:text-primary group-hover:scale-110 transition-all duration-300" />
-                </a>
-                <a
-                  href="https://linkedin.com/in/yourusername"
+                </a>                <a
+                  href="https://linkedin.com/in/kaanyıldız1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center justify-center w-12 h-12 rounded-full bg-card border border-border/40 shadow-md hover:shadow-lg transition-all duration-300"
                   aria-label="LinkedIn"
                 >
                   <FaLinkedin className="h-6 w-6 text-foreground/70 group-hover:text-[#0077B5] group-hover:scale-110 transition-all duration-300" />
-                </a>
-                <a
-                  href="https://twitter.com/yourusername"
+                </a>                <a
+                  href="tel:+905541927475"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center justify-center w-12 h-12 rounded-full bg-card border border-border/40 shadow-md hover:shadow-lg transition-all duration-300"
-                  aria-label="Twitter"
+                  aria-label="Telefon"
                 >
-                  <FaTwitter className="h-6 w-6 text-foreground/70 group-hover:text-[#1DA1F2] group-hover:scale-110 transition-all duration-300" />
+                  <FaPhone className="h-6 w-6 text-foreground/70 group-hover:text-green-600 group-hover:scale-110 transition-all duration-300" />
                 </a>
                 <a
-                  href="mailto:iletisim@email.com"
+                  href="mailto:kaanyildz@gmail.com"
                   className="group flex items-center justify-center w-12 h-12 rounded-full bg-card border border-border/40 shadow-md hover:shadow-lg transition-all duration-300"
                   aria-label="Email"
-                >                  <FaEnvelope className="h-6 w-6 text-foreground/70 group-hover:text-primary group-hover:scale-110 transition-all duration-300" />
+                ><FaEnvelope className="h-6 w-6 text-foreground/70 group-hover:text-primary group-hover:scale-110 transition-all duration-300" />
                 </a>
               </motion.div>
             </div>
@@ -359,7 +353,86 @@ export default function HakkimdaPage() {
             ))}
           </div>
         </div>
-      </section>      <section className="container mb-24">
+      </section>        <section className="container my-24">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">İlgi Alanları</h2>
+          <p className="mx-auto max-w-2xl text-lg text-foreground/80">
+            Tutkuyla üzerinde çalıştığım ve kendimi geliştirdiğim alanlar
+          </p>
+        </motion.div>
+        
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {[
+            { name: "Mobil Geliştirme", color: "from-blue-500 to-cyan-400" },
+            { name: "Oyun Geliştirme", color: "from-purple-500 to-pink-400" },
+            { name: "Veritabanı Yönetimi", color: "from-orange-500 to-amber-400" },
+            { name: "Yazılım Mimarileri", color: "from-green-500 to-emerald-400" },
+            { name: "Yapay Zeka", color: "from-red-500 to-rose-400" },
+            { name: "Web Geliştirme", color: "from-indigo-500 to-violet-400" },
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              className="rounded-xl border border-border/40 p-6 hover:shadow-lg transition-all duration-300 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
+            >
+              <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${item.color} mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold`}>
+                {item.name[0]}
+              </div>
+              <h3 className="text-lg font-medium">{item.name}</h3>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <section className="container my-24">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">Kişisel Beceriler</h2>
+          <p className="mx-auto max-w-2xl text-lg text-foreground/80">
+            Yazılım geliştirmenin yanında sahip olduğum diğer beceriler
+          </p>
+        </motion.div>
+        
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {[
+            "Araştırma ve Analiz",
+            "Hızlı Öğrenme",
+            "Problem Çözme",
+            "İletişim",
+            "Takım Çalışması",
+            "Liderlik",
+          ].map((skill, index) => (
+            <motion.div
+              key={index}
+              className="rounded-xl border border-border/40 p-4 hover:shadow-lg transition-all duration-300 text-center bg-card/50 backdrop-blur-sm"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+              whileHover={{ scale: 1.03 }}
+            >
+              <p className="font-medium">{skill}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+        <section className="container mb-24">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -381,15 +454,14 @@ export default function HakkimdaPage() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="mailto:iletisim@email.com"
+                href="mailto:kaanyildz@gmail.com"
                 className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-medium text-primary shadow-lg hover:bg-white/90 transition-all duration-300 hover:shadow-xl"
               >
                 <FaEnvelope className="h-5 w-5" />
                 E-posta Gönder
                 <span className="transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300">→</span>
               </a>
-              <a
-                href="https://linkedin.com/in/yourusername"
+              <a                href="https://linkedin.com/in/kaanyıldız1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm px-6 py-3 font-medium text-white hover:bg-white/30 transition-all duration-300"
@@ -398,10 +470,9 @@ export default function HakkimdaPage() {
                 LinkedIn Profili
                 <span className="transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300">→</span>
               </a>
-            </div>
-          </div>
+            </div>          </div>
         </motion.div>
       </section>
-    </>
+    </div>
   );
 }

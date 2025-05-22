@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { FaGithub, FaLinkedin, FaTwitter, FaBars, FaTimes } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaBars, FaTimes, FaEnvelope, FaInstagram } from 'react-icons/fa';
 import { ThemeToggle } from '@/components/theme/theme-toggle';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -95,9 +95,8 @@ export function Header() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-          >
-            <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent relative group">
-              <span className="relative z-10">YazılımDev</span>
+          >            <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent relative group">
+              <span className="relative z-10">Kaan Yıldız</span>
               <span className="absolute -bottom-1 left-0 w-0 h-1 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300"></span>
               <motion.span 
                 className="absolute -inset-x-2 -inset-y-1 rounded-lg bg-primary/5 opacity-0 group-hover:opacity-100"
@@ -152,10 +151,9 @@ export function Header() {
         <div className="flex items-center gap-4">
           <ThemeToggle />
           
-          {/* Sosyal Medya İkonları (Sadece desktop'ta görünür) */}
-          <div className="hidden md:flex items-center gap-2">
+          {/* Sosyal Medya İkonları (Sadece desktop'ta görünür) */}          <div className="hidden md:flex items-center gap-2">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/Kaaanyildiz"
               target="_blank"
               rel="noopener noreferrer"
               className="relative p-2 text-foreground/70 hover:text-foreground transition-all duration-300 group"
@@ -163,9 +161,8 @@ export function Header() {
             >
               <span className="absolute inset-0 rounded-full bg-foreground/5 opacity-0 group-hover:opacity-100 transform scale-0 group-hover:scale-100 transition-all duration-300"></span>
               <FaGithub className="h-5 w-5 transform group-hover:scale-110 transition-transform duration-300" />
-            </a>
-            <a
-              href="https://linkedin.com/in/yourusername"
+            </a>            <a
+              href="https://linkedin.com/in/kaanyıldız1"
               target="_blank"
               rel="noopener noreferrer"
               className="relative p-2 text-foreground/70 hover:text-foreground transition-all duration-300 group"
@@ -175,14 +172,14 @@ export function Header() {
               <FaLinkedin className="h-5 w-5 transform group-hover:scale-110 transition-transform duration-300" />
             </a>
             <a
-              href="https://twitter.com/yourusername"
+              href="mailto:kaanyildz@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
               className="relative p-2 text-foreground/70 hover:text-foreground transition-all duration-300 group"
-              aria-label="Twitter"
+              aria-label="Email"
             >
               <span className="absolute inset-0 rounded-full bg-foreground/5 opacity-0 group-hover:opacity-100 transform scale-0 group-hover:scale-100 transition-all duration-300"></span>
-              <FaTwitter className="h-5 w-5 transform group-hover:scale-110 transition-transform duration-300" />
+              <FaEnvelope className="h-5 w-5 transform group-hover:scale-110 transition-transform duration-300" />
             </a>
           </div>
           
@@ -242,18 +239,16 @@ export function Header() {
                   custom={5}
                   variants={menuItemVariants}
                   className="flex gap-6"
-                >
-                  <a
-                    href="https://github.com/yourusername"
+                >                  <a
+                    href="https://github.com/Kaaanyildiz"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-foreground/70 hover:text-primary transition-colors duration-200"
                     aria-label="GitHub"
                   >
                     <FaGithub className="h-7 w-7" />
-                  </a>
-                  <a
-                    href="https://linkedin.com/in/yourusername"
+                  </a>                  <a
+                    href="https://linkedin.com/in/kaanyıldız1"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-foreground/70 hover:text-primary transition-colors duration-200"
@@ -262,13 +257,13 @@ export function Header() {
                     <FaLinkedin className="h-7 w-7" />
                   </a>
                   <a
-                    href="https://twitter.com/yourusername"
+                    href="mailto:kaanyildz@gmail.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-foreground/70 hover:text-primary transition-colors duration-200"
-                    aria-label="Twitter"
+                    aria-label="Email"
                   >
-                    <FaTwitter className="h-7 w-7" />
+                    <FaEnvelope className="h-7 w-7" />
                   </a>
                 </motion.div>
               </nav>
@@ -328,11 +323,10 @@ export function Footer() {
       </div>
       
       <div className="container relative z-10">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 mb-10">
-          <div>
-            <h3 className="text-2xl font-bold text-primary mb-4">YazılımDev</h3>
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 mb-10">          <div>
+            <h3 className="text-2xl font-bold text-primary mb-4">Kaan Yıldız</h3>
             <p className="text-foreground/70 max-w-xs">
-              Flutter, C#, SQL ve web teknolojileri konusunda içerikler üreten kişisel blog ve portfolyo sitesi.
+              Flutter ile mobil uygulama geliştirme, C#, SQL ve web teknolojileri konusunda içerikler üreten kişisel blog ve portfolyo sitesi.
             </p>
           </div>
             <motion.div
@@ -394,10 +388,9 @@ export function Footer() {
             <h4 className="font-bold mb-4 relative">
               İletişim
               <span className="absolute -bottom-1 left-0 w-12 h-0.5 bg-gradient-to-r from-primary to-transparent"></span>
-            </h4>
-            <div className="flex items-center gap-6 mb-6">
+            </h4>            <div className="flex items-center gap-6 mb-6">
               <motion.a
-                href="https://github.com/yourusername"
+                href="https://github.com/Kaaanyildiz"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative"
@@ -410,9 +403,8 @@ export function Footer() {
                   <FaGithub className="h-6 w-6 text-foreground/70 group-hover:text-primary transform group-hover:scale-110 transition-all duration-300" />
                 </div>
               </motion.a>
-              
-              <motion.a
-                href="https://linkedin.com/in/yourusername"
+                <motion.a
+                href="https://linkedin.com/in/kaanyıldız1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative"
@@ -425,29 +417,28 @@ export function Footer() {
                   <FaLinkedin className="h-6 w-6 text-foreground/70 group-hover:text-[#0077B5] transform group-hover:scale-110 transition-all duration-300" />
                 </div>
               </motion.a>
-              
-              <motion.a
-                href="https://twitter.com/yourusername"
+                <motion.a
+                href="https://instagram.com/kaann_yildz"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative"
-                aria-label="Twitter"
+                aria-label="Instagram"
                 whileHover={{ y: -5 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <div className="absolute -inset-3 rounded-full bg-[#1DA1F2] opacity-0 blur-lg group-hover:opacity-20 transition-opacity duration-300"></div>
-                <div className="relative bg-card/30 backdrop-blur-sm border border-border/30 p-3 rounded-full shadow-sm group-hover:shadow-[#1DA1F2]/20 group-hover:shadow-lg transition-all duration-300">
-                  <FaTwitter className="h-6 w-6 text-foreground/70 group-hover:text-[#1DA1F2] transform group-hover:scale-110 transition-all duration-300" />
+                <div className="absolute -inset-3 rounded-full bg-[#E4405F] opacity-0 blur-lg group-hover:opacity-20 transition-opacity duration-300"></div>
+                <div className="relative bg-card/30 backdrop-blur-sm border border-border/30 p-3 rounded-full shadow-sm group-hover:shadow-[#E4405F]/20 group-hover:shadow-lg transition-all duration-300">
+                  <FaInstagram className="h-6 w-6 text-foreground/70 group-hover:text-[#E4405F] transform group-hover:scale-110 transition-all duration-300" />
                 </div>
               </motion.a>
             </div>
             
             <motion.a 
-              href="mailto:iletisim@email.com"
+              href="mailto:kaanyildz@gmail.com"
               className="group inline-flex items-center gap-2 bg-card/30 backdrop-blur-sm border border-border/30 px-4 py-2 rounded-lg hover:bg-card/60 transition-all duration-300"
               whileHover={{ x: 5 }}
             >
-              <span className="text-foreground/70 group-hover:text-primary transition-colors duration-300">iletisim@email.com</span>
+              <span className="text-foreground/70 group-hover:text-primary transition-colors duration-300">kaanyildz@gmail.com</span>
               <span className="opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300">→</span>
             </motion.a>
           </motion.div>
@@ -459,9 +450,8 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <p className="text-sm text-foreground/60 relative">
-            <span className="relative z-10">© {new Date().getFullYear()} YazılımDev. Tüm hakları saklıdır.</span>
+        >          <p className="text-sm text-foreground/60 relative">
+            <span className="relative z-10">© {new Date().getFullYear()} Kaan Yıldız. Tüm hakları saklıdır.</span>
             <motion.span 
               className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary/20"
               whileInView={{ width: "100%" }}

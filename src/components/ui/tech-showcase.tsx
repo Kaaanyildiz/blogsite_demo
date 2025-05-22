@@ -12,13 +12,12 @@ interface TechShowcaseProps {
   description?: string;
 }
 
-export function TechShowcase({ title = "Teknolojiler", description }: TechShowcaseProps) {
-  const technologies = [
+export function TechShowcase({ title = "Teknolojiler", description }: TechShowcaseProps) {  const technologies = [
     { name: "Flutter", icon: <SiFlutter className="h-12 w-12" />, color: "text-blue-400" },
-    { name: "SQL", icon: <FaDatabase className="h-12 w-12" />, color: "text-orange-400" },
-    { name: "Git", icon: <FaGit className="h-12 w-12" />, color: "text-red-400" },
+    { name: "Dart", icon: <SiFlutter className="h-12 w-12 rotate-45" />, color: "text-cyan-400" },
     { name: "C#", icon: <SiSharp className="h-12 w-12" />, color: "text-purple-400" },
-    { name: "Next.js", icon: <TbBrandNextjs className="h-12 w-12" />, color: "text-gray-400" },
+    { name: "ASP.NET Core", icon: <SiSharp className="h-12 w-12" />, color: "text-blue-600" },
+    { name: "SQL", icon: <FaDatabase className="h-12 w-12" />, color: "text-yellow-400" },
   ];
 
   return (    <section className="py-24 relative overflow-hidden">
