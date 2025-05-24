@@ -174,37 +174,6 @@ function getAllProjects(): Project[] {
         </ul>
       `
     },
-    {
-      id: "portfoliosite",
-      title: "Portföy Sitesi",
-      description: "HTML, CSS ve JavaScript kullanılarak geliştirilen statik portföy sitesi.",
-      image: "/images/portfoliosite.jpg",
-      tags: ["HTML", "CSS", "JavaScript"],
-      demoUrl: null,
-      githubUrl: "https://github.com/Kaaanyildiz/Portfolio",
-      detailedContent: `
-        <h2>Proje Hakkında</h2>
-        <p>Portföy Sitesi, yazılım geliştirme kariyerimin başlarında HTML, CSS ve JavaScript kullanarak geliştirdiğim ilk kişisel web sitesidir. Bu site, projelerimi göstermek ve yeteneklerimi sergilemek amacıyla oluşturulmuş statik bir web sitesidir.</p>
-        
-        <h2>Özellikler</h2>
-        <ul>
-          <li>Temiz ve minimal tasarım</li>
-          <li>Responsive layout</li>
-          <li>Proje showcase galerisi</li>
-          <li>Beceri ve teknoloji listeleri</li>
-          <li>Temel iletişim formu</li>
-        </ul>
-        
-        <h2>Kullanılan Teknolojiler</h2>
-        <ul>
-          <li>HTML5</li>
-          <li>CSS3</li>
-          <li>Vanilla JavaScript</li>
-          <li>Font Awesome ikonları</li>
-          <li>Google Fonts</li>
-        </ul>
-      `
-    },
   ];
 }
 

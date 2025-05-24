@@ -54,16 +54,7 @@ const projects = [
     tags: ["Next.js", "React", "Tailwind CSS"],
     demoUrl: null,
     githubUrl: "https://github.com/Kaaanyildiz/BlogSite",
-  },
-  {
-    id: "portfoliosite",
-    title: "Portföy Sitesi",
-    description: "HTML, CSS ve JavaScript kullanılarak geliştirilen statik portföy sitesi.",
-    image: "/images/portfoliosite.jpg",
-    tags: ["HTML", "CSS", "JavaScript"],
-    demoUrl: null,
-    githubUrl: "https://github.com/Kaaanyildiz/Portfolio",
-  },
+  }
 ];
 
 export default function ProjelerPage() {
